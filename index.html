@@ -9,13 +9,17 @@
         height: 100%;
         margin: 0px;
         padding: 20px;
-        border: 16px dashed #00ffe6;
-        background-color: white;
+        border: 12px dashed #00ffe6;
+        background-image: url("http://www.ajaxload.info/cache/FF/FF/FF/00/FF/E6/1-0.gif");
+        background-size: 6px, 1000px;
       }
-
+      #map {
+             height:800px;
+             width:800px;}
 
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="http://cooper-union-maps-proxy.herokuapp.com/js/draw.js"></script>
     <script>
 
       //set up the google map
@@ -47,6 +51,12 @@
         position: new google.maps.LatLng(52.348984, 4.844846),
         map: map,
         title:"Where I lived",
+      },
+     {
+       'title':'You can buy flowers here',
+           'map': new google.maps.LatLng(52.366956, 4.890196),
+           'link':'http://media-cdn.tripadvisor.com/media/photo-s/07/5e/4c/f4/bloemgracht.jpg'
+
         }];
 
        for(var i=0; i<buildings.length; i++) {
@@ -77,7 +87,7 @@
 
        map.setOptions({styles: styles});
 
-
+ draw('map', mapOptions, positions);
 
       }
 
