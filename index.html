@@ -8,7 +8,7 @@
       html, body, #map-canvas {
         height: 100%;
         margin: 0px;
-        padding: 30px;
+        padding: 20px;
         border: 16px dashed blue;
         background-color: yellow;
       }
@@ -23,8 +23,8 @@
       var initialize = function() {
         //set some default options
         var mapOptions = {
-          zoom: 15, //very close
-          center: new google.maps.LatLng(52.3718426,4.8888444) //cooper union
+          zoom: 14, //very close
+          center: new google.maps.LatLng(52.3696809,4.8926209) //cooper union
         };
 
         //create a new map, and have it populate the #map-canvas html element
@@ -51,7 +51,29 @@
          new google.maps.Marker(buildings[i]);
        }
 
+       var styles = [
+         {
+           stylers: [
+             { hue: "#00ffe6" },
+             { saturation: -20 }
+           ]
+         },{
+           featureType: "road",
+           elementType: "geometry",
+           stylers: [
+             { lightness: 100 },
+             { visibility: "simplified" }
+           ]
+         },{
+           featureType: "road",
+           elementType: "labels",
+           stylers: [
+             { visibility: "off" }
+           ]
+         }
+       ];
 
+       map.setOptions({styles: styles});
 
 
 
