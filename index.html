@@ -9,6 +9,8 @@
         height: 100%;
         margin: 0px;
         padding: 30px;
+        border: 16px dashed blue;
+        background-color: yellow;
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -28,6 +30,30 @@
         //create a new map, and have it populate the #map-canvas html element
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
+
+        var buildings = [{
+          position: new google.maps.LatLng(52.358, 4.868),
+          map: map,
+          title:"Vondelpark",
+        },
+       {
+         position: new google.maps.LatLng(52.357561, 4.881787),
+         map: map,
+         title:"Museums",
+       },
+      {
+        position: new google.maps.LatLng(52.348984, 4.844846),
+        map: map,
+        title:"Where I lived",
+        }];
+
+       for(var i=0; i<buildings.length; i++) {
+         new google.maps.Marker(buildings[i]);
+       }
+
+
+
+
 
       }
 
